@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-print(*["%c" % a for a in range(ord('a'), ord('z') + 1)
-        if "%c" % a not in 'qe'], sep='', end='')
+for alpha in range(ord('a'), ord('z')+1):
+    letter = chr(alpha)
+    if letter not in "qe":
+        print(letter, end="")
