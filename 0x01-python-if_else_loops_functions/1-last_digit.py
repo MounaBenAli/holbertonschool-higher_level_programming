@@ -1,10 +1,16 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-lastDigit = int(repr(number)[-1])
+
+if number < 0:
+    lastDigit = number % -10
+else:
+    lastDigit = number % 10
+
 str = ('Last digit of {:d}'.format(number))
 str1 = ('is {:d}'.format(lastDigit))
 str += (" " + str1)
+
 if lastDigit > 5:
     print(str + (' and is greater than 5 '))
 elif lastDigit == 0:
