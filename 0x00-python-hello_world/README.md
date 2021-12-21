@@ -1,4 +1,4 @@
-# 0x00. Python - Hello, World :hello:
+# 0x00. Python - Hello, World :snake:
 
 ## Resources
 
