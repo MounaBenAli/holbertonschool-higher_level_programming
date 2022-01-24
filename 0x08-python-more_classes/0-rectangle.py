@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""Define a class Rectangle ."""
+"""Rectangle module.
+This module contains a class that defines a rectangle.
+"""
 
 
 class Rectangle():
-    """Represent a rectangle."""
-    
+    """Defines a rectangle."""
+
     pass
