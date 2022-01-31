@@ -5,11 +5,10 @@ class MyInt(int):
     """The inheritance from int class.
     MyInt has == and != operators inverted
     """
+    def __eq__(self, other):
+        """magic method __eq__"""
+        return not super().__eq__(other)
 
-    def negation_of_equals(inst1, inst2):
-        """always should return same as not_equals(inst1, inst2)"""
-        return not inst1 == inst2
-
-    def not_equals(inst1, inst2):
-        """always should return same as negation_of_equals(inst1, inst2)"""
-        return inst1 != inst2
+    def __ne__(self, other):
+        """ Super Call to Equal """
+        return not super().__ne__(other)
