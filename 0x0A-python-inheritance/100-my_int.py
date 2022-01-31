@@ -6,10 +6,10 @@ class MyInt(int):
     MyInt has == and != operators inverted
     """
 
-    def __eq__(self, other):
-        """eq magic method"""
-        return False
+    def negation_of_equals(inst1, inst2):
+        """always should return same as not_equals(inst1, inst2)"""
+        return not inst1 == inst2
 
-    def __ne__(self, other):
-        """ne magic method"""
-        return True
+    def not_equals(inst1, inst2):
+        """always should return same as negation_of_equals(inst1, inst2)"""
+        return inst1 != inst2
