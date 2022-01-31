@@ -6,9 +6,11 @@ class MyInt(int):
     MyInt has == and != operators inverted
     """
     def __eq__(self, other):
-        """magic method __eq__"""
-        return not super().__eq__(other)
+        """eq magic method"""
+        if isinstance(other, int):
+            return False
 
     def __ne__(self, other):
-        """ Super Call to Equal """
-        return not super().__ne__(other)
+        """ne magic method"""
+        if isinstance(other, int):
+            return True
