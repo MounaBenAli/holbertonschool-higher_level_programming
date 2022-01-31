@@ -8,10 +8,10 @@ class MyInt(int):
 
     def __eq__(self, other):
         """eq magic method"""
-        if isinstance(other, int):
+        if isinstance(other, MyInt):
             return False
 
     def __ne__(self, other):
         """ne magic method"""
-        if isinstance(other, int):
+        if isinstance(other, MyInt):
             return True
