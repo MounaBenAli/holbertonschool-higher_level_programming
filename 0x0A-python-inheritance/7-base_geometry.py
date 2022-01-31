@@ -13,11 +13,11 @@ class BaseGeometry:
         """validates value type int
         Attributes:
         name: is always a string
-        value: the int to be validated 
+        value: the int to be validated
         """
 
-        if type(value) is not int: 
-            raise TypeError ('{} must be an integer'.format(name))
+        if type(value) is not int:
+            raise TypeError('{} must be an integer'.format(name))
         else:
             self.__value = value
         if value <= 0:
