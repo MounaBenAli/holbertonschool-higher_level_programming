@@ -14,7 +14,6 @@ if __name__ == '__main__':
         my_list = load_from_json_file(filename)
     except FileNotFoundError:
         my_list = []
-    
+
     my_list.extend(args)
     save_to_json_file(my_list, filename)
-
