@@ -16,6 +16,10 @@ class Student:
         """retrieves a dictionary representation of a Student instance
         for JSON serialization of an object.
         """
-        if isinstance(attrs, str):
-            return self.first_name
-        return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        my_dict = {}
+        for elements in attrs:
+            if hasattr(self, elements):
+                my_dict[elements] = getattr(self, elements)
+        return my_dict
