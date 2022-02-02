@@ -8,8 +8,10 @@ class MyInt(int):
 class MyInt(int):
     """Define a MyInt."""
 
-    def __eq__(self, value):
-        return super().__ne__(value)
+    def __eq__(self, other):
+        """ Swaping behavior of `==` and `!=`"""
+        return super().__ne__(other)
 
-    def __ne__(self, value):
-        return super().__eq__(value)
+    def __ne__(self, other):
+        """ Swaping behavior of `==` and `!=`"""
+        return super().__eq__(other)
