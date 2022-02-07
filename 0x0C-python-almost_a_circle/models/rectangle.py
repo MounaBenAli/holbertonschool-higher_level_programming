@@ -84,17 +84,9 @@ class Rectangle(Base):
 
     def display(self):
         """prints to stdout the Rectangle with `#` character"""
-        if self.width == 0 or self.height == 0:
-            print("")
-            return
-        for y in range(self.y):
-            print("")
-        for i in range(self.height):
-            for x in range(self.x):
-                print("", end="")
-                for j in range(self.width):
-                    print("#", end="")
-                    print("")
+        lay_out = ('\n' * self.y) + \
+            (('' * self.x) + ('#' * self.width) + '\n') * self.height
+        print(lay_out, end='')
 
     def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
