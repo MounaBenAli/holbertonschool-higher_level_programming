@@ -2,6 +2,7 @@
 """Square Class module"""
 
 
+from multiprocessing.sharedctypes import Value
 from models.rectangle import Rectangle
 
 
@@ -24,3 +25,14 @@ class Square(Rectangle):
         """Return the print() and str() representation of the Square."""
         return "[Square] ({}) <{}>/<{}> - <{}>".format(
             self.id, super().x, super().y, super().width)
+
+    @property
+    def size(self):
+        """Square size getter"""
+        return super().width
+
+    @size.setter
+    def size(self, size):
+        """Square size setter"""
+        self.width = size
+        self.height = size
