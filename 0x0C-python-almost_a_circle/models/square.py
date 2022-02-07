@@ -2,7 +2,9 @@
 """Square Class module"""
 
 
+from ctypes import sizeof
 from multiprocessing.sharedctypes import Value
+from re import X
 from models.rectangle import Rectangle
 
 
@@ -54,3 +56,11 @@ class Square(Rectangle):
             self.attr__update(*args)
         elif kwargs:
             self.attr__update(**kwargs)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Square."""
+        return{
+            'id': self.id,
+            'x': self.x,
+            'size': self.size,
+            'y': self.y}
