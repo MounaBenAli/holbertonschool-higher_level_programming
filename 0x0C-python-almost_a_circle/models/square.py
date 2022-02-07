@@ -23,7 +23,7 @@ class Square(Rectangle):
 
     def __str__(self):
         """Return the print() and str() representation of the Square."""
-        return "[Square] ({}) <{}>/<{}> - <{}>".format(
+        return "[Square] ({}) {}/{} - {}".format(
             self.id, super().x, super().y, super().width)
 
     @property
