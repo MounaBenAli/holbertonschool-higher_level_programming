@@ -37,8 +37,12 @@ class Base():
         """writes the JSON string representation of list_objs to a file"""
         filename = cls.__name__ + ".json"
         dict = []
+
         if list_objs is None:
-            return dict
+            dict = []
+        if list_objs:
+            for i in list_objs:
+                dict = i.to_dictionary()
         with open(filename, "w") as f:
             json_rep = cls.to_json_string(dict)
             f.write(json_rep)
@@ -49,3 +53,7 @@ class Base():
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
