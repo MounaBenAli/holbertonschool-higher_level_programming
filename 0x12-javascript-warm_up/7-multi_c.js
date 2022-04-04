@@ -13,3 +13,4 @@ if (parseInt(times)) {
 } else {
   console.log('Missing number of occurrences');
 }
+
