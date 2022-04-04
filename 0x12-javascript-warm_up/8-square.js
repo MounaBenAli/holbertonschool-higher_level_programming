@@ -1,17 +1,12 @@
 #!/usr/bin/node
-//  prints prints a square
+// prints a square
 
-const size = process.argv.slice(2);
-let square = '';
+const size = parseInt(process.argv.slice(2));
 
-if (parseInt(size)) {
+if (size) {
   for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      square += 'X';
-    }
-    square += '\n';
+    console.log('X'.repeat(size));
   }
-  console.log(square);
 } else {
   console.log('Missing size');
 }
