@@ -3,7 +3,7 @@
 
 const times = process.argv.slice(2);
 let i = 0;
-const str = 'c is fun';
+const str = 'C is fun';
 
 if (parseInt(times)) {
   while (i < times) {
