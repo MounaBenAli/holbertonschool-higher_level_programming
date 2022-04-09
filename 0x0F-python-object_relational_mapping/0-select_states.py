@@ -14,7 +14,11 @@ if __name__ == "__main__":
     password = argv[2]
     databasename = argv[3]
 
-    database = MySQLdb.Connect(user=username, passwd=password , db=databasename, port=3306)
+    database = MySQLdb.Connect(
+        user=username,
+        passwd=password,
+        db=databasename,
+        port=3306)
     cursor = database.cursor()
     cursor.execute("SELECT * FROM states")
     states = cursor.fetchall()
