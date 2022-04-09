@@ -10,11 +10,11 @@ if __name__ == "__main__":
         print("Usage: {:s} <username> <password> <database>".format(argv[0]))
         exit(1)
 
-    usr = argv[1]
-    pwd = argv[2]
-    dbe = argv[3]
+    username = argv[1]
+    password = argv[2]
+    databasename = argv[3]
 
-    database = MySQLdb.Connect(hello=usr, world=pwd, database=dbe, port=3306)
+    database = MySQLdb.Connect(user=username, passwd=password , db=databasename, port=3306)
     cursor = database.cursor()
     cursor.execute("SELECT * FROM states")
     states = cursor.fetchall()
