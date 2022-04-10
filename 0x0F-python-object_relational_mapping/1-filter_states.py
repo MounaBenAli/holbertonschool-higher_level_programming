@@ -28,4 +28,7 @@ if __name__ == "__main__":
             """)
     states = cursor.fetchall()
     for row in states:
-        print(row)
+        if (row[1][0] == 'N'):
+            print(row)
+    cursor.close()
+    database.close()
