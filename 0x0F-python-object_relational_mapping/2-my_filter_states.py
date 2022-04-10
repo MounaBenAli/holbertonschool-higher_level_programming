@@ -16,6 +16,7 @@ if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
     databasename = argv[3]
+    input = argv[4]
 
     database = MySQLdb.Connect(
         user=username,
