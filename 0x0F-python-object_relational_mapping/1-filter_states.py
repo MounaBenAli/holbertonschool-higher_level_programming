@@ -4,9 +4,6 @@ lists all states with starting name (upper N) from the database hbtn_0e_0_usa
 """
 
 
-from logging import root
-
-
 if __name__ == "__main__":
     import MySQLdb
     from sys import argv, exit
@@ -25,7 +22,10 @@ if __name__ == "__main__":
         db=databasename,
         port=3306)
     cursor = database.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cursor.execute("""
+            SELECT * FROM states WHERE states.name LIKE 'N%'
+            ORDER BY states.id ASC
+            """)
     states = cursor.fetchall()
     for row in states:
         print(row)
