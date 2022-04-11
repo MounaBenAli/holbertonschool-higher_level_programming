@@ -2,8 +2,6 @@
 """prints the first State object from the database hbtn_0e_6_usa using ORM
 """
 
-from distutils.command.build_scripts import first_line_re
-
 
 if __name__ == "__main__":
     import sqlalchemy
