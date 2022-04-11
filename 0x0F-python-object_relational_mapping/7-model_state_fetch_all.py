@@ -6,6 +6,7 @@ if __name__ == "__main__":
     import sqlalchemy
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
+    from sqlalchemy.orm import Session
     from model_state import Base, State
     from sys import argv, exit
 
@@ -13,22 +14,18 @@ if __name__ == "__main__":
         print("Usage: ./7.py <username> <password> <database>")
         exit(1)
 
-    username = argv[1]
-    password = argv[2]
-    databasename = argv[3]
+    user = argv[1]
+    passwd = argv[2]
+    database = argv[3]
 
-    engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(
-            argv[1],
-            argv[2],
-            argv[3]),
-        pool_pre_ping=True)
+    eng = "mysql://" + user + ":" + passwd + "@localhost:3306/" + database
+    engine = create_engine(eng)
     Base.metadata.create_all(engine)
 
-Session = sessionmaker()
-Session.configure(bind=engine)
-session = Session()
-query = session.query(State).order_by(State.id)
-for state in query.all():
-    print("{} : {}".format(state.id, state.name))
-session.close()
+    Session = sessionmaker()
+    Session.configure(bind=engine)
+    session = Session()
+    query = session.query(State).order_by(State.id)
+    for state in query.all():
+        print("{} : {}".format(state.id, state.name))
+    session.close()
