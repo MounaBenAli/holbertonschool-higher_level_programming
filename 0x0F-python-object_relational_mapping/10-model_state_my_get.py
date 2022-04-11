@@ -5,7 +5,6 @@ from the database hbtn_0e_6_usa using ORM.
 """
 
 
-
 if __name__ == "__main__":
     import sqlalchemy
     from sqlalchemy import create_engine
