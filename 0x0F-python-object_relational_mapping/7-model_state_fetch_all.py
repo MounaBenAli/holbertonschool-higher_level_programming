@@ -18,8 +18,8 @@ if __name__ == "__main__":
     passwd = argv[2]
     database = argv[3]
 
-    eng = "mysql://" + user + ":" + passwd + "@localhost:3306/" + database
-    engine = create_engine(eng)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
     Session = sessionmaker()
