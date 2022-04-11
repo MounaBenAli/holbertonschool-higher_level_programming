@@ -2,13 +2,21 @@
 """lists all State objects from the database hbtn_0e_6_usa using ORM
 """
 
-
-from sys import argv
-from model_state import Base, State
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import (create_engine)
-
 if __name__ == "__main__":
+    import sqlalchemy
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from model_state import Base, State
+    from sys import argv, exit
+
+    if len(argv) != 4:
+        print("Usage: ./7.py <username> <password> <database>")
+        exit(1)
+
+    username = argv[1]
+    password = argv[2]
+    databasename = argv[3]
+
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'.format(
             argv[1],
@@ -17,8 +25,10 @@ if __name__ == "__main__":
         pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-Session = sessionmaker(bind=engine)
+Session = sessionmaker()
+Session.configure(bind=engine)
 session = Session()
-for state in session.query(State).order_by(State.id).all():
+query = session.query(State).order_by(State.id)
+for state in query.all():
     print("{} : {}".format(state.id, state.name))
 session.close()
