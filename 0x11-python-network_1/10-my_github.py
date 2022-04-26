@@ -9,7 +9,7 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    api_url = "https://api.github.com/users/"
+    api_url = "https://api.github.com/user"
     response = requests.get(api_url, auth=(argv[1], argv[2]))
     data = response.json()
     try:
